@@ -49,9 +49,13 @@ $('#submit').click(function() {
 	    	}
 
 
+
 		    for (let data of listMenuResult){
-		    	var img = "<img src = ' " + data.image +"' />";
-		    	$('#result').append(img + "<br>");
+				var img = "<img src = ' " + data.image +"' />";
+ 				var title = "<h3>" + data.title +"</h3>";
+ 				var content = "<p>" + data.content +"</p>";
+ 				$('#result').append("<div class='content'>" + img + "<div class='contentText'>" + title + content 
+ 				+"</div>"+"</div>");
 		    }
 
 	    });
