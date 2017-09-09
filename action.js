@@ -39,11 +39,13 @@ $('#submit').click(function() {
 		    var listMenuResult = [];
 		    var c = 0;
 	    	for(let data of menu){
+
 	    		if ((c + parseInt(data.indicator)) < calorie + 50){
 		    		listMenuResult.push(data);
 		   			c += parseInt(data.indicator);
 	    		}
 	    		if (c > calorie - 50) break;
+
 	    	}
 
 
