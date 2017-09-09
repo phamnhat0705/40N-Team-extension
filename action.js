@@ -1,3 +1,9 @@
+$(document).ready(function() {
+
+
+});
+
+
 $('#submit').click(function() {
 	$('#result').html();
 	$('#comment').html();
@@ -25,7 +31,7 @@ $('#submit').click(function() {
 	    
 		// ajax handle
 		$.ajax({
-			url: "/",
+			url: "http://google.com",
 			type: "post",
 			data: {
 				gender: gender,
@@ -43,11 +49,11 @@ $('#submit').click(function() {
 	var errorWeight = "";
 	var errorHeight = "";
 	if ($('#weight').val() == ""){
-		errorWeight = "<p class = 'text-danger'> Weight is not null! </p>";
+		errorWeight = "<p class = 'text-danger'> Weight is not empty! </p>";
 	}
 
 	if ($('#height').val() == ""){
-		errorHeight = "<p class = 'text-danger'> Height is not null! </p>";
+		errorHeight = "<p class = 'text-danger'> Height is not empty! </p>";
 	}
 
 	$('#error').html(errorWeight + errorHeight);
