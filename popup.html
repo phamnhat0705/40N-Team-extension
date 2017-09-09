@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>40N team</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="jquery-bootstrap.js"></script>
+</head>
+  <body class="container">
+    
+    <style>
+      body {
+        min-width:600px;
+        overflow-x:hidden;
+      }
+    </style>
+
+    <br>
+    <form action="#">
+    <label>Gender: </label>
+    &ensp;
+    <label>Male
+    <input type="radio" id="gender" name="gender" placeholder="Gender" value="Male"></label>
+    &ensp;
+    <label>Female
+    <input type="radio" id="gender" name="gender" placeholder="Gender" value="Female"></label>
+    <br>
+    <input type="number" id="age" placeholder="Age" class="form-control">
+    <br>
+    <input type="number" id="weight" placeholder="Weight (Kg)" class="form-control" required="required">
+    <br>
+    <input type="number" id="height" placeholder="Height (cm)" class="form-control" required>
+    <br>
+    <input type="number" id="goalWeight" placeholder="Goal Weight (kg)" class="form-control">
+    <br>
+    <input type="submit" id="submit" value="Send" class="btn btn-primary">
+    <br>
+    </form>
+    <div id="result"></div>
+    <div id="comment"></div>
+    <div id="error"></div>
+    <br>
+
+    <script src="action.js"></script>
+  </body>
+</html>
