@@ -34,30 +34,17 @@ $('#submit').click(function() {
 	    var listMenuResult = [];
 	    $.getJSON("menu.json", function(menu){
 	    	for(let data of menu){
-	    		var img = "<img src = ' " + data.image +"' />";
-	    		$('#result').append(img + "<br>");
+				var img = "<img src = ' " + data.image +"' />";
+				var title = "<h3>" + data.title +"</h3>";
+				var content = "<p>" + data.content +"</p>";
+				$('#result').append("<div class='content'>" + img + "<div class='contentText'>" + title + content 
+				+"</div>"+"</div>");
 	    		listMenuResult.push(data);
 	    	}
 	    });
 
 	    $('#div-input').fadeOut();
 	    $('#div-result').fadeIn();
-
-		// ajax handle
-		$.ajax({
-			url: "http://google.com",
-			type: "post",
-			data: {
-				gender: gender,
-				age: age,
-				weight: weight,
-				height: height,
-			},
-
-			success: function(data){
-
-			}
-		});
 	}
 
 	var errorWeight = "";
