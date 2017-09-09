@@ -11,8 +11,13 @@
   <body class="container">
     
     <style>
-      body {
+      #div-input {
         min-width:350px;
+        overflow-x:hidden;
+      }
+
+      #div-result {
+        min-width:600px;
         overflow-x:hidden;
       }
     </style>
@@ -22,13 +27,13 @@
 
       <br>
       <form action="#">
-      <label>Gender: </label>
-      &ensp;
-      <label>Male
-      <input type="radio" id="gender" name="gender" placeholder="Gender" value="Male"></label>
-      &ensp;
-      <label>Female
-      <input type="radio" id="gender" name="gender" placeholder="Gender" value="Female"></label>
+
+      <label>Gender</label>
+      <select class="form-control" id="gender">
+        <option value="Male" selected>Male</option>
+        <option value="Female">Female</option>
+      </select>
+
       <br>
       <input type="number" id="age" placeholder="Age" class="form-control">
       <br>
@@ -36,20 +41,30 @@
       <br>
       <input type="number" id="height" placeholder="Height (cm)" class="form-control" required>
       <br>
+
+      <label>Activity level</label>
+      <select class="form-control">
+        <option value="1.2">Sitting/lying all day</option>
+        <option value="1.3" selected>Seated work, no exercise</option>
+        <option value="1.4">Seated work, light exercise</option>
+      </select>
+
+      <br>
       <input type="number" id="goalWeight" placeholder="Goal Weight (kg)" class="form-control">
       <br>
       <input type="submit" id="submit" value="Send" class="btn btn-primary">
       <br>
       </form>
-      <div id="result"></div>
-      <div id="comment"></div>
+
       <div id="error"></div>
       <br>
 
   </div>
 
   <div id="div-result" style="display: none">
-
+      <input type="submit" id="return" class="btn btn-primary" value="Back">
+      <div id="comment"></div>
+      <div id="result"></div>
   </div>
 
   <script src="action.js"></script>

@@ -14,7 +14,6 @@ $('#submit').click(function() {
 		var age = $('#age').val();
 		var weight = $('#weight').val();
 		var height = $('#height').val() / 100;
-
 		var bmi = weight / (height * height);
 	    var bmiStatus = "";
 
@@ -24,11 +23,26 @@ $('#submit').click(function() {
 	    if (bmi >= 30 && bmi < 40) { bmiStatus = "Obese"; }
 	    if (bmi > 40) { bmiStatus = "Morbidly Obese"; }
 
-	    $('#result').html("Gender: " + gender + " - Age: " + age + " - Weight: " + weight + " - " + bmi);
+	    var genderValue = 5;
+	    if (gender == "Female") { genderValue = -161; }
+	    var bmr = 10 * weight + 6.25 * height - 5 * age + genderValue;
+
 	    $('#comment').html(bmiStatus);
+	    $('#result').html("Gender: " + gender + " - Age: " + age + " - Weight: " + weight + " - " + bmr + "<br>");
 
+	    // get json
+	    var listMenuResult = [];
+	    $.getJSON("menu.json", function(menu){
+	    	for(let data of menu){
+	    		var img = "<img src = ' " + data.image +"' />";
+	    		$('#result').append(img + "<br>");
+	    		listMenuResult.push(data);
+	    	}
+	    });
 
-	    
+	    $('#div-input').fadeOut();
+	    $('#div-result').fadeIn();
+
 		// ajax handle
 		$.ajax({
 			url: "http://google.com",
@@ -63,6 +77,13 @@ $('#submit').click(function() {
 	$('#age').val("");
 	$('#weight').val("");
 	$('#height').val("");
+	$('#goalWeight').val("");
 
     return false;
+});
+
+
+$('#return').click(function(){
+	$('#div-input').fadeIn();
+	$('#div-result').fadeOut();
 });
