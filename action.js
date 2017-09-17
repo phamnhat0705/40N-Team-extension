@@ -13,8 +13,10 @@ $('#submit').click(function() {
 		var gender = $('#gender').val();
 		var age = $('#age').val();
 		var weight = $('#weight').val();
-		var height = $('#height').val() / 100;
-		var bmi = weight / (height * height);
+		var height = $('#height').val();
+		var activity = $('#activity').val();
+
+		var bmi = weight / (height * height / 10000);
 	    var bmiStatus = "";
 	    var valueBmi = 0;
 
@@ -26,12 +28,12 @@ $('#submit').click(function() {
 
 	    var genderValue = 5;
 	    if (gender == "Female") { genderValue = -161; }
-	    var bmr = 10 * weight + 6.25 * height - 5 * age + genderValue;
+	    var bmr = (10 * weight + 6.25 * height - 5 * age + genderValue) * activity;
 	    var calorie = bmr + valueBmi;
 
-	    $('#comment').html(bmiStatus);
-	    $('#result').html("Gender: " + gender + " - Age: " + age + " - Weight: " + weight + " - " + bmr + "<br>");
-
+	    $('#comment').html("BMI value: " + Math.round(bmi * 100) / 100 +  "; Health status: " + bmiStatus );
+	    $('#result').html("Gender: " + gender + " - Age: " + age + " - Weight: " + weight + " - Height: " + height + "<br>");
+		$('#result').append("Calories per day: " + bmr + "cal" + "<hr>");
 	    // get json
 
 	    $.getJSON("menu.json", function(menu){
